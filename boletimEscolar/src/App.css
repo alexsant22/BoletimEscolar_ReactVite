@@ -1,4 +1,4 @@
-/* App.css - Tema Escuro Roxo */
+/* App.css - Tema Escuro Roxo Responsivo */
 :root {
   --dark-bg: #121212;
   --darker-bg: #0a0a0a;
@@ -17,12 +17,17 @@
   --reprovado-text: #ff5252;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--dark-bg);
   color: var(--text-primary);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 .app {
@@ -33,23 +38,25 @@ body {
 .header {
   background: linear-gradient(135deg, var(--primary), #4a0072);
   color: white;
-  padding: 2rem 0;
-  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .page-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 1rem;
+  width: 100%;
 }
 
 .card {
   background-color: var(--card-bg);
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   border: 1px solid var(--border-color);
+  overflow: hidden;
 }
 
 .card-header {
@@ -57,24 +64,29 @@ body {
   color: var(--text-primary);
   border-bottom: 1px solid var(--border-color);
   font-weight: 600;
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   border-radius: 10px 10px 0 0 !important;
 }
 
 .card-body {
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .form-label {
   color: var(--text-primary);
   font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .form-control {
   background-color: var(--darker-bg);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1rem;
 }
 
 .form-control:focus {
@@ -82,22 +94,30 @@ body {
   border-color: var(--primary);
   color: var(--text-primary);
   box-shadow: 0 0 0 0.25rem rgba(138, 43, 226, 0.25);
+  outline: none;
 }
 
 .form-control::placeholder {
   color: var(--text-secondary);
+  opacity: 0.7;
 }
 
 .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 5px;
   font-weight: 500;
   transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border: none;
+  color: white;
 }
 
 .btn-primary:hover {
@@ -108,41 +128,46 @@ body {
 
 .btn-success {
   background: linear-gradient(135deg, var(--success), #009624);
-  border: none;
+  color: white;
 }
 
 .btn-danger {
   background: linear-gradient(135deg, var(--danger), #c50e2e);
-  border: none;
+  color: white;
 }
 
 .btn-outline-primary {
   color: var(--primary);
-  border-color: var(--primary);
+  border: 1px solid var(--primary);
   background: transparent;
 }
 
 .btn-outline-primary:hover {
   background-color: var(--primary);
-  border-color: var(--primary);
   color: white;
 }
 
 .btn-outline-danger {
   color: var(--danger);
-  border-color: var(--danger);
+  border: 1px solid var(--danger);
   background: transparent;
 }
 
 .btn-outline-danger:hover {
   background-color: var(--danger);
-  border-color: var(--danger);
   color: white;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  width: 100%;
 }
 
 .table {
   color: var(--text-primary);
   border-color: var(--border-color);
+  width: 100%;
+  min-width: 600px;
 }
 
 .table-dark {
@@ -152,10 +177,18 @@ body {
   --bs-table-border-color: var(--border-color);
 }
 
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
 .table th {
   background-color: var(--card-header-bg);
   color: var(--text-primary);
   border-color: var(--border-color);
+  position: sticky;
+  top: 0;
 }
 
 .table-hover > tbody > tr:hover {
@@ -177,21 +210,28 @@ body {
 
 .action-buttons {
   white-space: nowrap;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .alert-dark {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .alert-dark h5 {
   color: var(--primary);
+  margin-top: 0;
 }
 
 .badge {
   font-weight: 500;
   padding: 0.5em 0.75em;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 .bi {
@@ -202,25 +242,114 @@ body {
   color: var(--text-secondary) !important;
 }
 
+/* Grid responsivo */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.75rem;
+}
+
+.col {
+  flex: 1;
+  padding: 0 0.75rem;
+  min-width: 300px;
+}
+
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .page-container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .page-container {
+    max-width: 720px;
+  }
+  
   .header {
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    max-width: 540px;
+    padding: 0 0.75rem;
+  }
+  
+  .header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
   }
   
   .header h1 {
     font-size: 1.75rem;
   }
   
-  .card-body {
-    padding: 1rem;
+  .card {
+    margin-bottom: 1rem;
   }
   
-  .action-buttons {
-    white-space: normal;
+  .card-body {
+    padding: 0.75rem;
   }
   
   .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    width: 100%;
     margin-bottom: 0.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    white-space: normal;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-container {
+    padding: 0 0.5rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .card-header {
+    padding: 0.75rem;
+  }
+  
+  .form-control {
+    padding: 0.6rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+  
+  .col {
+    min-width: 100%;
+  }
+}
+
+/* Utilitários responsivos */
+.d-none-mobile {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .d-none-mobile {
+    display: none;
+  }
+  
+  .text-center-mobile {
+    text-align: center;
   }
 }
